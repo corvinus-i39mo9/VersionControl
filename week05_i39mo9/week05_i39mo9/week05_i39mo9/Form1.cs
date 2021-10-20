@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,7 @@ namespace week05_i39mo9
     {
         PortfolioEntities context = new PortfolioEntities();
         List<PortfolioItem> Portfolio = new List<PortfolioItem>();
+        List<string> op = new List<string>();
         List<Tick> Ticks;
 
         public Form1()
@@ -42,6 +44,7 @@ namespace week05_i39mo9
                                       select x)
                                         .ToList();
             MessageBox.Show(nyereségekRendezve[nyereségekRendezve.Count() / 5].ToString());
+            
         }
 
         private void CreatePortfolio()
@@ -66,6 +69,21 @@ namespace week05_i39mo9
                 value += (decimal)last.Price * item.Volume;
             }
             return value;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog SaveFileDialog1 = new SaveFileDialog();
+            SaveFileDialog1.Title = "Adatok exportálása";
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                using (StreamWriter outputFile = new StreamWriter(saveFileDialog1.FileName))
+                {
+                    outputFile.WriteLine("Időszak   Nyereség");
+                    foreach (PortfolioItem p in Portfolio)
+                        outputFile.WriteLine(p);
+                }
+            }
         }
     }
 }
