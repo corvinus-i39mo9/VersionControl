@@ -16,6 +16,7 @@ namespace week05_i39mo9
     {
         PortfolioEntities context = new PortfolioEntities();
         List<PortfolioItem> Portfolio = new List<PortfolioItem>();
+        List<decimal> output = new List<decimal>();
         List<string> op = new List<string>();
         List<Tick> Ticks;
 
@@ -43,6 +44,7 @@ namespace week05_i39mo9
                                       orderby x
                                       select x)
                                         .ToList();
+            output = nyereségekRendezve;
             MessageBox.Show(nyereségekRendezve[nyereségekRendezve.Count() / 5].ToString());
             
         }
@@ -77,11 +79,14 @@ namespace week05_i39mo9
             SaveFileDialog1.Title = "Adatok exportálása";
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
+                var szamlalo = 1;
                 using (StreamWriter outputFile = new StreamWriter(saveFileDialog1.FileName))
                 {
                     outputFile.WriteLine("Időszak   Nyereség");
-                    foreach (PortfolioItem p in Portfolio)
-                        outputFile.WriteLine(p);
+                    foreach (var item in output)
+                    { outputFile.WriteLine(szamlalo + "   " + item);
+                        szamlalo++;
+                    };
                 }
             }
         }
