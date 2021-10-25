@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using System.Xml;
 using week06_i39mo9.Entities;
 using week06_i39mo9.MNBServiceReference;
@@ -21,6 +22,7 @@ namespace week06_i39mo9
             InitializeComponent();
             dgw.DataSource = Rates;
             fuggveny2(fuggveny());
+            diagram();
         }
 
         private string fuggveny()
@@ -58,6 +60,25 @@ namespace week06_i39mo9
                 if (unit != 0)
                     rate.Value = value / unit;
             }
+        }
+
+        private void diagram()
+        {
+            chartRateData.DataSource = Rates;
+
+            var series = chartRateData.Series[0];
+            series.ChartType = SeriesChartType.Line;
+            series.XValueMember = "Date";
+            series.YValueMembers = "Value";
+            series.BorderWidth = 2;
+
+            var legend = chartRateData.Legends[0];
+            legend.Enabled = false;
+
+            var chartArea = chartRateData.ChartAreas[0];
+            chartArea.AxisX.MajorGrid.Enabled = false;
+            chartArea.AxisY.MajorGrid.Enabled = false;
+            chartArea.AxisY.IsStartedFromZero = false;
         }
     }
 }
