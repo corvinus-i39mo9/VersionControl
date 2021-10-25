@@ -21,20 +21,8 @@ namespace week06_i39mo9
         public Form1()
         {
             InitializeComponent();
-            comboBox1.DataSource = Currencies;
-            var mnbService = new MNBArfolyamServiceSoapClient();
-            var request = new GetCurrenciesRequestBody();
-            var response = mnbService.GetCurrencies(request);
-            var result = response.GetCurrenciesResult;
-            var xml = new XmlDocument();
-            xml.LoadXml(result);
-
-            foreach (XmlElement element in xml.DocumentElement)
-            {
-                string curr = element.InnerText.ToString();
-                Currencies.Add(curr);
-                RefreshData();
-            }
+            ValutakBetoltese();
+            RefreshData();
         }
 
         private void RefreshData()
@@ -142,7 +130,6 @@ namespace week06_i39mo9
         {
             Rates.Clear();
             dgw.DataSource = Rates;
-
             var mnbService = new MNBArfolyamServiceSoapClient();
 
             var request = new GetExchangeRatesRequestBody()
@@ -155,6 +142,27 @@ namespace week06_i39mo9
             var eredmeny = response.GetExchangeRatesResult;
             fuggveny2(eredmeny);
             diagram();
+        }
+        private void ValutakBetoltese()
+        {
+            comboBox1.DataSource = Currencies;
+            var mnbService = new MNBArfolyamServiceSoapClient();
+            var request = new GetCurrenciesRequestBody();
+            var response = mnbService.GetCurrencies(request);
+            var result = response.GetCurrenciesResult;
+            var xml = new XmlDocument();
+            xml.LoadXml(result);
+
+            foreach (XmlElement element in xml.DocumentElement)
+            {
+                for (int i = 0; i < element.ChildNodes.Count; i++)
+                {
+                    var childElement = (XmlElement)element.ChildNodes[i];
+                    var curr = childElement.InnerText;
+                    Currencies.Add(curr);
+                }
+                RefreshData();
+            }
         }
     }
 }
