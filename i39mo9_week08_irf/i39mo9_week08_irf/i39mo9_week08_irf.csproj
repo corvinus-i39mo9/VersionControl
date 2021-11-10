@@ -49,6 +49,9 @@
     <Compile Include="Abstractions\Toy.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Entities\Car.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Entities\Ball.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -85,6 +88,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Images\car.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
