@@ -1,4 +1,5 @@
-﻿using System;
+﻿using i39mo9_week08_irf.Abstractions;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -8,30 +9,11 @@ using System.Windows.Forms;
 
 namespace i39mo9_week08_irf.Entities
 {
-    public class Toy: Label
+    public class Ball: Toy
     {
-        public Toy()
-        {
-            AutoSize = false;
-            Height = 50;
-            Width = 50;
-
-            Paint += Ball_Paint;
-        }
-
-        private void Ball_Paint(object sender, PaintEventArgs e)
-        {
-            DrawImage(e.Graphics);
-        }
-
-        protected void DrawImage(Graphics gr)
+        protected override void DrawImage(Graphics gr)
         {
             gr.FillEllipse(new SolidBrush(Color.Blue), 0, 0, Width, Height);
-        }
-
-        public void MoveBall()
-        {
-            Left += 1;
         }
     }
 }
