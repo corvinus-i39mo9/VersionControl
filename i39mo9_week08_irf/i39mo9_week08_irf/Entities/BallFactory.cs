@@ -1,4 +1,5 @@
-﻿using System;
+﻿using i39mo9_week08_irf.Abstractions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ namespace i39mo9_week08_irf.Entities
 {
     public class BallFactory
     {
-        public Toy CreateNew()
+        public Ball CreateNew()
         {
             return new Ball();
         }

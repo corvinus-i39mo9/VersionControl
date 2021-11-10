@@ -13,7 +13,7 @@ namespace i39mo9_week08_irf
 {
     public partial class Form1 : Form
     {
-        private List<Toy> _balls = new List<Toy>();
+        private List<Ball> _balls = new List<Ball>();
 
         private BallFactory _factory;
         public BallFactory Factory
@@ -32,7 +32,7 @@ namespace i39mo9_week08_irf
             var maxPosition = 0;
             foreach (var b in _balls)
             {
-                b.MoveBall();
+                b.MoveToy();
                 if (b.Left > maxPosition)
                     maxPosition = b.Left;
             }
