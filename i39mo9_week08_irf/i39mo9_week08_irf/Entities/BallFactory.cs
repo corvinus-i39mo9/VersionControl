@@ -8,7 +8,7 @@ namespace i39mo9_week08_irf.Entities
 {
     public class BallFactory
     {
-        public Ball CreateNew()
+        public Toy CreateNew()
         {
             return new Ball();
         }

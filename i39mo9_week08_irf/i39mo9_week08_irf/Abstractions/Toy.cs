@@ -6,9 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace i39mo9_week08_irf.Entities
+namespace i39mo9_week08_irf.Abstractions
 {
-    public class Toy: Label
+    public abstract class Toy : Label
     {
         public Toy()
         {
@@ -16,20 +16,17 @@ namespace i39mo9_week08_irf.Entities
             Height = 50;
             Width = 50;
 
-            Paint += Ball_Paint;
+            Paint += Toy_Paint;
         }
 
-        private void Ball_Paint(object sender, PaintEventArgs e)
+        private void Toy_Paint(object sender, PaintEventArgs e)
         {
             DrawImage(e.Graphics);
         }
 
-        protected void DrawImage(Graphics gr)
-        {
-            gr.FillEllipse(new SolidBrush(Color.Blue), 0, 0, Width, Height);
-        }
+        protected abstract void DrawImage(Graphics gr);
 
-        public void MoveBall()
+        public virtual void MoveToy()
         {
             Left += 1;
         }
