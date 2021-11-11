@@ -13,8 +13,8 @@ namespace i39mo9_week08_irf.Entities
     {
         protected override void DrawImage(Graphics gr)
         {
-            Image imageFile = Image.FromFile("Images/car.png");
-            gr.DrawImage(imageFile, new Rectangle(0, 0, Width, Height));
+            Image img = Image.FromFile("Images/car.png");
+            gr.DrawImage(img, new Rectangle(0, 0, Width, Height));
         }
     }
 }

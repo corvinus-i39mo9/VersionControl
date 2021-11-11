@@ -14,18 +14,22 @@ namespace i39mo9_week08_irf
 {
     public partial class Form1 : Form
     {
+        private Toy _nextToy;
+
         private List<Toy> _toys = new List<Toy>();
 
         private IToyFactory _factory;
         public IToyFactory Factory
         {
             get { return _factory; }
-            set { _factory = value; }
+            set { _factory = value;
+                DisplayNext();
+            }
         }
         public Form1()
         {
             InitializeComponent();
-            Factory = new Factory();
+            Factory = new BallFactory();
         }
 
         private void conveyorTimer_Tick(object sender, EventArgs e)
@@ -48,10 +52,42 @@ namespace i39mo9_week08_irf
 
         private void createTimer_Tick(object sender, EventArgs e)
         {
-            var b = Factory.CreateNew();
-            _toys.Add(b);
-            mainPanel.Controls.Add(b);
-            b.Left = -b.Width;
+            var t = Factory.CreateNew();
+            _toys.Add(t);
+            t.Left = -t.Width;
+            mainPanel.Controls.Add(t);
+        }
+
+        private void buttonCar_Click(object sender, EventArgs e)
+        {
+            Factory = new CarFactory();
+        }
+
+        private void buttonBall_Click(object sender, EventArgs e)
+        {
+            Factory = new BallFactory();
+        }
+
+        void DisplayNext()
+        {
+            if (_nextToy != null)
+                Controls.Remove(_nextToy);
+            _nextToy = Factory.CreateNew();
+            _nextToy.Top = label1.Top + label1.Height + 20;
+            _nextToy.Left = label1.Left;
+            Controls.Add(_nextToy);
+        }
+
+        private void buttonSzinvalaszto_Click(object sender, EventArgs e)
+        {
+            var button = (Button)sender;
+            var clr = new ColorDialog();
+            clr.Color = buttonSzinvalaszto.BackColor;
+            if (clr.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+            buttonSzinvalaszto.BackColor = clr.Color;
         }
     }
 }
