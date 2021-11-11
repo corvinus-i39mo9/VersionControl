@@ -37,6 +37,9 @@ namespace i39mo9_week08_irf
             this.buttonBall = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonSzinvalaszto = new System.Windows.Forms.Button();
+            this.buttonPresent = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // mainPanel
@@ -70,7 +73,7 @@ namespace i39mo9_week08_irf
             // 
             // buttonBall
             // 
-            this.buttonBall.Location = new System.Drawing.Point(12, 43);
+            this.buttonBall.Location = new System.Drawing.Point(93, 12);
             this.buttonBall.Name = "buttonBall";
             this.buttonBall.Size = new System.Drawing.Size(75, 23);
             this.buttonBall.TabIndex = 2;
@@ -81,7 +84,7 @@ namespace i39mo9_week08_irf
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(137, 12);
+            this.label1.Location = new System.Drawing.Point(391, 17);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 13);
             this.label1.TabIndex = 3;
@@ -90,18 +93,51 @@ namespace i39mo9_week08_irf
             // buttonSzinvalaszto
             // 
             this.buttonSzinvalaszto.BackColor = System.Drawing.Color.Yellow;
-            this.buttonSzinvalaszto.Location = new System.Drawing.Point(12, 100);
+            this.buttonSzinvalaszto.Location = new System.Drawing.Point(93, 41);
             this.buttonSzinvalaszto.Name = "buttonSzinvalaszto";
-            this.buttonSzinvalaszto.Size = new System.Drawing.Size(75, 52);
+            this.buttonSzinvalaszto.Size = new System.Drawing.Size(75, 35);
             this.buttonSzinvalaszto.TabIndex = 4;
             this.buttonSzinvalaszto.UseVisualStyleBackColor = false;
             this.buttonSzinvalaszto.Click += new System.EventHandler(this.buttonSzinvalaszto_Click);
+            // 
+            // buttonPresent
+            // 
+            this.buttonPresent.Location = new System.Drawing.Point(174, 12);
+            this.buttonPresent.Name = "buttonPresent";
+            this.buttonPresent.Size = new System.Drawing.Size(75, 23);
+            this.buttonPresent.TabIndex = 5;
+            this.buttonPresent.Text = "PRESENT";
+            this.buttonPresent.UseVisualStyleBackColor = true;
+            this.buttonPresent.Click += new System.EventHandler(this.buttonPresent_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Yellow;
+            this.button1.Location = new System.Drawing.Point(174, 82);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 35);
+            this.button1.TabIndex = 6;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Yellow;
+            this.button2.Location = new System.Drawing.Point(174, 41);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 35);
+            this.button2.TabIndex = 7;
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 311);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonPresent);
             this.Controls.Add(this.buttonSzinvalaszto);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonBall);
@@ -123,6 +159,9 @@ namespace i39mo9_week08_irf
         private System.Windows.Forms.Button buttonBall;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonSzinvalaszto;
+        private System.Windows.Forms.Button buttonPresent;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
 

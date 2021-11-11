@@ -67,7 +67,7 @@ namespace i39mo9_week08_irf
         {
             Factory = new BallFactory
             {
-                BallColor = buttonBall.BackColor
+                BallColor = buttonSzinvalaszto.BackColor
             };
         }
 
@@ -90,7 +90,40 @@ namespace i39mo9_week08_irf
             {
                 return;
             }
-            buttonSzinvalaszto.BackColor = clr.Color;
+            button.BackColor = clr.Color;
+        }
+
+        private void buttonPresent_Click(object sender, EventArgs e)
+        {
+            Factory = new PresentFactory
+            {
+                RibbonColor = button1.BackColor,
+                BoxColor = button2.BackColor
+            };
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var button = (Button)sender;
+            var clr = new ColorDialog();
+            clr.Color = buttonSzinvalaszto.BackColor;
+            if (clr.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+            button.BackColor = clr.Color;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var button = (Button)sender;
+            var clr = new ColorDialog();
+            clr.Color = buttonSzinvalaszto.BackColor;
+            if (clr.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+            button.BackColor = clr.Color;
         }
     }
 }
