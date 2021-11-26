@@ -37,7 +37,7 @@ namespace UnitTestExample.Test
             TestCase("abcde123", false),
             TestCase("jelszo", false),
             TestCase("jelszó12", false),
-            TestCase("Abcdefg1", true),
+            TestCase("A1b2C3d4", true),
             ]
         public void TestValidatePW(string pw, bool expectedResult)
         {
@@ -49,8 +49,6 @@ namespace UnitTestExample.Test
 
             // Assert
             Assert.AreEqual(expectedResult, actualResult);
-
-
         }
     }
 }
